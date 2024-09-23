@@ -1,0 +1,15 @@
+.blog-list-container {
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.blog-card {
+  width: 100%;
+  background-color: white;
+}

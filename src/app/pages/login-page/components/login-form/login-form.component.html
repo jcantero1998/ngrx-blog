@@ -1,0 +1,54 @@
+<mat-card appearance="outlined">
+
+  <mat-card-header>
+    <mat-card-title>{{currentUrl === 'login' ? 'Login' : 'Register'}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      @if (currentUrl === 'login' && (isDevMode$ | async)) {
+        <div class="info-container" (click)="openDialog()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon>
+          Click to see credentials
+        </div>
+      }
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          required
+        />
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']) {
+          <mat-error>
+              Please enter a valid email.
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password" [type]="hide() ? 'password' : 'text'" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+        >
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="button-container">
+        <button mat-button (click)="navigate()">{{currentUrl === 'login' ? 'Register' : 'Login'}}</button>
+        <button mat-flat-button color="primary" type="submit">{{currentUrl === 'login' ? 'Login' : 'Register'}}</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()" aria-label="toolbar icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="toolbar-title">NGRX-BLOG</span>
+  <span class="spacer"></span>
+  <div class="user-info">
+    {{user()?.email}}
+    <button (click)="logout()" mat-icon-button aria-label="toolbar icon-button with logout icon" matTooltip="Logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

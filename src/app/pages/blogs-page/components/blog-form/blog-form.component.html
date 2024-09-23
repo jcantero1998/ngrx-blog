@@ -1,0 +1,26 @@
+<mat-card class="form-card">
+  <mat-card-content>
+    <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-controls-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Enter blog title">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Content</mat-label>
+          <textarea matInput formControlName="content" placeholder="Enter blog content" rows="15"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="button-container">
+        <button mat-flat-button color="primary" type="submit">
+          <mat-icon>save</mat-icon>
+          {{ isEditMode ? 'Save' : 'Create' }}
+        </button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>

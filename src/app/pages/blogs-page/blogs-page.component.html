@@ -1,0 +1,60 @@
+<mat-drawer-container class="drawer-container" hasBackdrop="true">
+  <mat-drawer #drawer mode="over">
+
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <img class="user-photo" src="user.svg" alt="User Photo" />
+        <p class="user-email"> {{user()?.email}} </p>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <a class="mat-list-item" mat-list-item (click)="drawer.toggle()">Blogs</a>
+      </mat-nav-list>
+      <div class="drawer-footer">
+        <mat-divider></mat-divider>
+        <button mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-toolbar [drawer]="drawer"/>
+    <div class="main-container">
+      <div class="main-content">
+        <div [ngClass]="{ 'blogs-title-container': title === 'Blogs', 'title-container': title !== 'Blogs' }">
+          @if (title !== 'Blogs') {
+            <button color="primary" mat-icon-button aria-label="Go Back" matTooltip="Go Back" (click)="goBack()">
+              <mat-icon>arrow_back</mat-icon>
+            </button>
+          }
+          <h2 class="title">{{ title }}</h2>
+          @if (title === 'Blogs') {
+            <button mat-flat-button color="primary" (click)="createBlog()">
+              <mat-icon>add</mat-icon>
+              Create Blog
+            </button>
+          }
+        </div>
+        <!-- @if (title === 'Blogs') {
+          <div class="blogs-title-container">
+            <h2 class="title">{{title}}</h2>
+            <button mat-flat-button color="primary" (click)="createBlog()">
+              <mat-icon>add</mat-icon>
+              Create Blog
+            </button>
+          </div>
+        } @else {
+          <div class="title-container">
+            <button mat-button (click)="goBack()">Back</button>
+            <h2 class="title">{{title}}</h2>
+          </div>
+        }
+          -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <app-footer/>
+  </mat-drawer-content>
+</mat-drawer-container>

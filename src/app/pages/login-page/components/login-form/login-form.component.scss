@@ -1,0 +1,33 @@
+mat-card {
+  max-width: 350px;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+mat-card-header {
+ padding-bottom: 1rem;
+}
+
+.info-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  background-color: rgba(255, 251, 0, 0.3);
+  border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  gap: 0.5rem;
+  display: flex;
+  justify-content: end;
+}

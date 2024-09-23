@@ -1,0 +1,28 @@
+<div class="blog-list-container">
+  @for (blog of blogs$ | async; track $index) {
+    <mat-card class="blog-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ blog.title }}</mat-card-title>
+          <mat-card-subtitle>By {{ blog.author }}</mat-card-subtitle>
+          @if (blog.author === user()?.email) {
+            <div class="card-actions">
+              <button mat-icon-button aria-label="Edit" matTooltip="Edit blog" (click)="editBlog(blog)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Delete blog" matTooltip="Delete blog" (click)="deleteBlog(blog)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          }
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ blog.content | slice:0:150 }}...</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary" (click)="readMore(blog.id)">Read More</button>
+      </mat-card-actions>
+    </mat-card>
+  }
+</div>
