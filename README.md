@@ -1,6 +1,15 @@
 # NgrxBlog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+This is a prototype of a Blog Application built with Angular 18, Angular Material 18, and NgRx 18 for state management. The app allows users to view blog posts, as well as create, edit, and delete their own blogs once they are logged in.
+
+## Tech Stack
+
+- **Angular 18**: Framework used to build the UI.
+- **NgRx 18**: For managing state across the application.
+- **Angular Material 18**: Provides UI components like dialogs, buttons, and forms.
+- **TypeScript**: Strongly typed language for better development experience.
+- **RxJS**: Reactive programming using observables for asynchronous operations.
+- **NgRx Store LocalStorage**: Used to persist state such as authentication and blogs across browser reloads.
 
 ## Development server
 
