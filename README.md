@@ -11,6 +11,10 @@ This is a prototype of a Blog Application built with Angular 18, Angular Materia
 - **RxJS**: Reactive programming using observables for asynchronous operations.
 - **NgRx Store LocalStorage**: Used to persist state such as authentication and blogs across browser reloads.
 
+## Live Demo
+
+You can see the project in action at the following link: [NgrxBlog Live](https://ngrx-blog.vercel.app/)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
